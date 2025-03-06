@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpdvtar0uf70t"]
+[gd_scene load_steps=8 format=3 uid="uid://bpdvtar0uf70t"]
 
+[ext_resource type="Script" uid="uid://ccnuiqbfjc4od" path="res://scenes/plane/plane.gd" id="1_cels0"]
 [ext_resource type="Texture2D" uid="uid://csy4y6vm6lgtl" path="res://assets/plane/planes_sheet.png" id="1_xhrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cels0"]
@@ -31,12 +32,18 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhrip"]
+radius = 22.0
+
 [node name="Plane" type="CharacterBody2D"]
+script = ExtResource("1_cels0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(202, 80)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_t4ive")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.15458
+frame_progress = 0.96897
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xhrip")
